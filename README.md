@@ -1,30 +1,82 @@
-# React + TypeScript + Vite
+# LyleBlog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License](https://img.shields.io/github/license/Lyle-Lyle/letty-survey)
+![Stars](https://img.shields.io/github/stars/Lyle-Lyle/letty-survey)
+![Issues](https://img.shields.io/github/issues/Lyle-Lyle/letty-survey)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview 📖
+This is my personal blog. Online address: . Please feel free to give me advices and questions. The implementation includes the frontend pages such as the homepage, categories,
+tags, and archives, as well as the corresponding backend management features.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technical Architecture
 
-- Configure the top-level `parserOptions` property like this:
+If using a diagram to summarize the technical architecture of LyleCoupon, it would be presented as shown in the following image
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+<img width="1008" alt="image" src="https://github.com/user-attachments/assets/1370e956-9269-4581-80fc-2bef0bf5b007">
+
+
+
+
+
+
+
+
+## Features
+
+
+
+
+
+
+
+## Demo Screenshots 📸
+TODO
+
+
+
+## Installation & Usage 🚀
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/your-repository.git
+cd your-repository
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2. Install dependencies
+
+
+```bash
+# Using npm
+npm install
+
+# Or using yarn
+yarn install
+```
+
+### 3. Run the project
+```
+npm start
+```
+
+## Contributing 🤝
+Contributions are welcome! Follow these steps:
+
+- Fork this repository
+- Create a new branch (git checkout -b feature/your-feature)
+- Commit your changes (git commit -m 'Add some feature')
+- Push to the branch (git push origin feature/your-feature)
+- Open a Pull Request
+
+
+
+## License 📄
+This project is licensed under the MIT License.
+
+
+
+
+
+
