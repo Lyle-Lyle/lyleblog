@@ -1,10 +1,5 @@
-import axios, {
-  AxiosError,
-  AxiosRequestConfig,
-  AxiosRequestTransformer,
-} from 'axios';
+import axios, { AxiosError } from 'axios';
 import config from '@/config.json';
-import qs from 'qs';
 import { message } from 'antd';
 import useAppStore from '@/store/app-store';
 import { resetAllStore } from '@/store/resetters';
@@ -23,8 +18,8 @@ instance.interceptors.request.use(
     // config.transformRequest = () => {
     //   return qs.stringify({ name: 'lyle', age: 22 });
     // };
-    const url = config.url;
-    const method = config.method?.toUpperCase();
+    // const url = config.url;
+    // const method = config.method?.toUpperCase();
     // 判断是否需要 formData格式的数据
     // if (
     //   (url === '/my/article/add' && method == 'POST') ||
@@ -37,7 +32,7 @@ instance.interceptors.request.use(
 
     // 为请求头按需挂载 token
     const token = useAppStore.getState().token;
-    console.log('挂载token');
+    console.log('mounted token');
     console.log(token);
     // if (url?.includes('/') && token) {
     //   config.headers.Authorization = 'Bearer ' + token;
@@ -69,7 +64,7 @@ instance.interceptors.response.use(
       if (error.response.status === 401) {
         if (useAppStore.getState().token) {
           // token 过期了
-          message.error('登录过期，请重新登录！');
+          message.error('Please login first!');
           // 清空 store
           resetAllStore();
         }
@@ -84,10 +79,10 @@ instance.interceptors.response.use(
       // 判断错误类型，设置不同的错误消息
       switch (error.code) {
         case 'ERR_NETWORK':
-          msg = '您的网络似乎断开了...';
+          msg = 'Check your Internet connection...';
           break;
         case 'ECONNABORTED':
-          msg = '请求超时...';
+          msg = 'Timeout...';
           break;
         default:
           msg = error.message;
