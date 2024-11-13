@@ -58,6 +58,7 @@ const router = createBrowserRouter([
         <Login />
       </AuthLayout>
     ),
+    handle: { title: 'Login' },
   },
   {
     path: '/register',
@@ -67,6 +68,7 @@ const router = createBrowserRouter([
         <Register />
       </AuthLayout>
     ),
+    handle: { title: 'Register' },
   },
   {
     path: '/admin',
@@ -126,43 +128,50 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Home />,
+    element: (
+      <AuthRoot>
+        <Home />
+      </AuthRoot>
+    ),
     loader: homeLoader,
+    children: [
+      {
+        path: '/home-test',
+        element: <HomeTest />,
+      },
+      {
+        path: '/archive',
+        element: <ArchiveList />,
+        loader: archiveLoader,
+      },
+      {
+        path: '/category',
+        element: <CategoryList />,
+        loader: categoryLoader,
+      },
+      {
+        path: '/category/article/list',
+        element: <CategoryArticleList />,
+        loader: categoryArticleLoader,
+      },
+      {
+        path: '/tag',
+        element: <TagList />,
+        loader: tagLoader,
+      },
+      {
+        path: '/tag/article/list',
+        element: <TagArticleList />,
+        loader: tagArticleLoader,
+      },
+      {
+        path: '/article/:articleId',
+        element: <ArticleDetail />,
+        loader: artDetailLoader,
+      },
+    ],
   },
-  {
-    path: '/home-test',
-    element: <HomeTest />,
-  },
-  {
-    path: '/archive',
-    element: <ArchiveList />,
-    loader: archiveLoader,
-  },
-  {
-    path: '/category',
-    element: <CategoryList />,
-    loader: categoryLoader,
-  },
-  {
-    path: '/category/article/list',
-    element: <CategoryArticleList />,
-    loader: categoryArticleLoader,
-  },
-  {
-    path: '/tag',
-    element: <TagList />,
-    loader: tagLoader,
-  },
-  {
-    path: '/tag/article/list',
-    element: <TagArticleList />,
-    loader: tagArticleLoader,
-  },
-  {
-    path: '/article/:articleId',
-    element: <ArticleDetail />,
-    loader: artDetailLoader,
-  },
+
   {
     path: '*',
     element: <NotFound />,

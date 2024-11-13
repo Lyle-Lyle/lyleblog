@@ -31,12 +31,14 @@ instance.interceptors.request.use(
     // }
 
     // 为请求头按需挂载 token
+    // 拿到store中的token
     const token = useAppStore.getState().token;
     console.log('mounted token');
     console.log(token);
     // if (url?.includes('/') && token) {
     //   config.headers.Authorization = 'Bearer ' + token;
     // }
+    //token不为空时添加token到请求头上
     if (token) {
       config.headers.Authorization = 'Bearer ' + token;
     }
@@ -69,7 +71,7 @@ instance.interceptors.response.use(
           resetAllStore();
         }
       } else {
-        message.error(error.response.data.message);
+        message.error(error.response.data.message || 'request failed');
       }
       return Promise.reject(error.response.data);
     } else {
