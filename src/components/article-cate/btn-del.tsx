@@ -2,6 +2,8 @@ import { useEffect, useState, type FC } from 'react';
 import { Button, message, Popconfirm, PopconfirmProps } from 'antd';
 import { useActionData, useSubmit } from 'react-router-dom';
 import { useNavLoading, useNavSubmitting } from '@/utils/hooks';
+import to from 'await-to-js';
+import { deleteArticle } from '@/api/article-api';
 
 const ButtonDelete: FC<{ id: number }> = ({ id }) => {
   const [open, setOpen] = useState(false);
@@ -13,22 +15,25 @@ const ButtonDelete: FC<{ id: number }> = ({ id }) => {
   const loading = useNavLoading('DELETE');
   const actionData = useActionData() as boolean;
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (id === 1 || id === 2) {
       return message.error('delete error');
     }
     setOpen(true);
-
+    const [err] = await to(deleteArticle(id));
+    if (err) {
+      console.log(err);
+    }
     console.log(id);
   };
 
   const confirm = () => {
-    console.log('确认删除！', id);
+    console.log('Yes!', id);
     submit({ id }, { method: 'DELETE' });
   };
 
   const cancel = () => {
-    console.log('取消了删除');
+    console.log('cancel');
     setOpen(false);
   };
   //接收第二个形参（事件对象 e），判断 e?.currentTarget.dataset.type 的值是否为 btn-ok。

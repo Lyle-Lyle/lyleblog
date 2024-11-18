@@ -34,7 +34,7 @@ const ArticleDetail = () => {
   // }, [loaderData]);
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
       <main className='container max-w-screen-xl mx-auto p-4 px-6'>
         {/* <!-- grid 表格布局，分为 4 列 --> */}
         <div className='grid grid-cols-4 gap-7'>
@@ -61,7 +61,7 @@ const ArticleDetail = () => {
                       >
                         <path d='m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z' />
                       </svg>
-                      首页
+                      Home
                     </a>
                   </li>
                   <li>
@@ -71,7 +71,7 @@ const ArticleDetail = () => {
                         href='#'
                         className='ml-1 text-sm font-medium md:ml-3 dark:text-gray-400 dark:hover:text-white'
                       >
-                        正文
+                        content
                       </a>
                     </div>
                   </li>
@@ -119,7 +119,6 @@ const ArticleDetail = () => {
                       d='M1 5v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H1Zm0 0V2a1 1 0 0 1 1-1h5.443a1 1 0 0 1 .8.4l2.7 3.6H1Z'
                     />
                   </svg>
-                  分类于
                   <a href='#' className='hover:underline'>
                     {loaderData?.artRes.categoryName}
                   </a>
@@ -141,7 +140,7 @@ const ArticleDetail = () => {
                       <path d='M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z' />
                     </g>
                   </svg>{' '}
-                  阅读量 {loaderData?.artRes.readNum}
+                  Page Views {loaderData?.artRes.readNum}
                 </div>
                 {/* <!-- 正文 --> */}
                 <div
@@ -254,7 +253,7 @@ const ArticleDetail = () => {
       </main>
       {/* <!-- 返回顶部 --> */}
       {/* <ScrollToTopButton></ScrollToTopButton> */}
-      <Footer></Footer>;
+      {/* <Footer></Footer>; */}
     </>
   );
 };

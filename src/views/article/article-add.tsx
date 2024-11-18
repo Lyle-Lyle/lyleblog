@@ -39,6 +39,8 @@ import { getCateListApi } from '@/api/cate-api';
 import { getTagSelectListApi } from '@/api/tag-api';
 import useAppStore, { selectToken } from '@/store/app-store';
 
+import config from '@/config.json';
+
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
@@ -69,7 +71,7 @@ const ArticleAdd: FC = () => {
 
   const handleCancel = () => {
     // 跳转到 article list页面
-    navigate('/admin/art-list');
+    navigate('/admin/art-list:');
     // 重置菜单
     formRef.resetFields();
   };
@@ -99,7 +101,8 @@ const ArticleAdd: FC = () => {
 
   //  upload组件属性
   const props = {
-    action: 'http://localhost:8080/admin/file/upload',
+    action: `${config.baseURL}/admin/file/upload`,
+    // action: 'http://118.25.109.39:8080/admin/file/upload',
     name: 'file',
     method: 'post',
     headers: {

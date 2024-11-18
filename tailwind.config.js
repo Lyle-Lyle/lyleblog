@@ -14,6 +14,7 @@ module.exports = {
       flowbite.plugin(),
     ]
   },
+  // darkMode: 'media',
   // corePlugins: {
   //   preflight: false,
   // }

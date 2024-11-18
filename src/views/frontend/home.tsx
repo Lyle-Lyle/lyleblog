@@ -24,7 +24,7 @@ import router from '@/router';
 
 const Home = () => {
   const loaderData = useLoaderData();
-  console.log('loaderData', loaderData);
+  console.log('Home loaderData', loaderData);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -56,7 +56,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {/* <!-- 主内容区域 --> */}
       <main className='container max-w-screen-xl mx-auto p-4'>
         {/* <!-- grid 表格布局，分为 4 列 --> */}
@@ -66,31 +66,32 @@ const Home = () => {
             {/* <!-- 文章列表，grid 表格布局，分为 2 列 --> */}
             <div className='grid grid-cols-2 gap-4'>
               {/* 渲染文章列表 */}
-              {loaderData?.artRes.map((value) => (
+              {loaderData?.artRes?.map((value) => (
                 <div className='col-span-2 md:col-span-1'>
                   <div className='bg-white border  border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700'>
                     {/* <!-- 文章封面 --> */}
-                    <a onClick={() => toArticleDetailPage(value.id)}>
+                    <a onClick={() => toArticleDetailPage(value?.id)}>
                       <img
-                        className='rounded-t-lg h-48 w-full'
-                        src={value.cover}
+                        className='rounded-t-lg h-48
+                         w-full'
+                        src={value?.cover}
                         alt=''
                       />
                     </a>
                     {/* <!-- 标签 --> */}
-                    <div className='mb-3'>
-                      {value?.tags.map((tag) => (
+                    <div className='mb-1 mt-1'>
+                      {value?.tags?.map((tag) => (
                         <span className='inline-block cursor-pointer text-green-800 text-xs font-medium ml-2 mr-2 px-2.5 py-0.5 rounded hover:bg-green-200 hover:text-green-900 dark:bg-green-900 dark:text-green-300'>
-                          {tag.name}
+                          {tag?.name}
                         </span>
                       ))}
                     </div>
 
-                    <div className='p-5'>
+                    <div className='p-4'>
                       {/* 文章标题 */}
-                      <a onClick={() => toArticleDetailPage(value.id)}>
+                      <a onClick={() => toArticleDetailPage(value?.id)}>
                         <h2 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-                          {value.title}
+                          {value?.title}
                         </h2>
                       </a>
                       {/* <!-- 文章摘要 --> */}
@@ -117,7 +118,7 @@ const Home = () => {
                             d='M5 1v3m5-3v3m5-3v3M1 7h18M5 11h10M2 3h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z'
                           />
                         </svg>
-                        {getDate(value.createTime)}
+                        {getDate(value?.createTime)}
                         {/* <!-- 所属分类 --> */}
                         <svg
                           className='inline w-3 h-3 ml-5 mr-2 text-gray-400 dark:text-white'
@@ -136,7 +137,7 @@ const Home = () => {
                         </svg>
 
                         <a href='#' className='text-gray-400 hover:underline'>
-                          {value.category.name}
+                          {value?.category?.name}
                         </a>
                       </p>
                     </div>
@@ -171,7 +172,9 @@ const Home = () => {
             <div className='flex overflow-x-auto sm:justify-center'>
               <Pagination
                 currentPage={currentPage}
-                totalPages={loaderData?.total / loaderData?.q.pageSize}
+                totalPages={Math.ceil(
+                  loaderData?.total / loaderData?.q.pageSize
+                )}
                 onPageChange={onPageChange}
                 showIcons
               />
@@ -192,7 +195,7 @@ const Home = () => {
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
@@ -207,7 +210,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     id: Number(searchParams.get('id')) || '',
     title: searchParams.get('title') || '',
     current: Number(searchParams.get('current')) || 1,
-    pageSize: Number(searchParams.get('size')) || 2,
+    pageSize: Number(searchParams.get('size')) || 6,
   };
 
   // 获取首页文章分页列表

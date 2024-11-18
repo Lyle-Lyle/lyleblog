@@ -38,6 +38,7 @@ import useUserStore, { selectUser } from '@/store/user-store';
 import { updateBlogSettings, uploadFile } from '@/api/blogSettings-api';
 import { METHODS } from 'http';
 import useAppStore, { selectToken } from '@/store/app-store';
+import config from '@/config.json';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -86,7 +87,8 @@ const BlogSetting: FC = () => {
 
   //  upload组件属性
   const props = {
-    action: 'http://localhost:8080/admin/file/upload',
+    // action: 'http://118.25.109.39:8080/admin/file/upload',
+    action: `${config.baseURL}/admin/file/upload`,
     name: 'file',
     method: 'post',
     headers: {
@@ -123,13 +125,13 @@ const BlogSetting: FC = () => {
           logo: values.logo.file.response.data.url,
           avatar: values.avatar.file.response.data.url,
         };
-        console.log('校验通过后的数据是：', formData);
+        console.log('Validated data:', formData);
         // TODO：提交表单数据到路由的 action 进行处理
         submit(formData, { method: 'POST' });
         navigate('/admin/art-list');
       })
       .catch((err) => {
-        console.log('校验不通过:', err);
+        console.log('invalid:', err);
         message.error('error!');
       });
   };

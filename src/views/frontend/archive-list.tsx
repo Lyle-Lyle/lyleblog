@@ -28,7 +28,7 @@ const ArchiveList = () => {
     q;
     total: number;
   } | null;
-  console.log('loaderData', loaderData);
+  console.log('Archive loaderData', loaderData);
 
   const [currentPage, setCurrentPage] = useState(loaderData?.q.current);
 
@@ -50,7 +50,7 @@ const ArchiveList = () => {
   }, []);
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
 
       {/* <!-- 主内容区域 --> */}
       <main className='container max-w-screen-xl mx-auto p-4 px-6'>
@@ -77,7 +77,7 @@ const ArchiveList = () => {
                             <img
                               className='w-24 h-12 mb-3 mr-3 rounded-lg sm:mb-0'
                               src={article.cover}
-                              alt='Jese Leos image'
+                              alt='post'
                             />
                             <div className='text-gray-600 dark:text-gray-400'>
                               <h2 className='text-base font-normal text-gray-900'>
@@ -135,7 +135,7 @@ const ArchiveList = () => {
         </div>
       </main>
 
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

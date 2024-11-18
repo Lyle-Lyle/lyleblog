@@ -21,8 +21,8 @@ export const updateArticle = (data) =>
   axios.post<null, BaseResponse>('/article/update', data);
 
 // 删除文章
-export const deleteArticle = (data) =>
-  axios.post<null, BaseResponse>('/admin/article/delete', data);
+export const deleteArticle = (id) =>
+  axios.post<null, BaseResponse>('/admin/article/delete', { id });
 
 // 根据文章id获取文章信息
 export const getArticleInfo = (data) =>

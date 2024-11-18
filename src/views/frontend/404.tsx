@@ -8,7 +8,7 @@ const NotFound = () => {
   return (
     <>
       {' '}
-      <Header></Header>
+      {/* <Header></Header> */}
       {/* <!-- 主内容区域 --> */}
       <main className='container max-w-screen-xl mx-auto p-4 flex items-center justify-center flex-col'>
         <svg
@@ -739,7 +739,7 @@ const NotFound = () => {
           </button>
         </p>
       </main>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

@@ -19,7 +19,7 @@ const TagList = () => {
   } | null;
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
       {/* // <!-- 主内容区域 --> */}
       <main className='container max-w-screen-xl mx-auto p-4 px-6'>
         {/* <!-- grid 表格布局，分为 4 列 --> */}
@@ -41,7 +41,7 @@ const TagList = () => {
           </aside>
         </div>
       </main>
-      <Footer></Footer>;
+      {/* <Footer></Footer>; */}
     </>
   );
 };

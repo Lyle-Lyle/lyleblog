@@ -28,7 +28,7 @@ const TagArticleList = () => {
   console.log('loaderData', loaderData);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className='container max-w-screen-xl mx-auto p-4 px-6'>
         {/* <!-- grid 表格布局，分为 4 列 --> */}
         <div className='grid grid-cols-4 gap-7'>
@@ -65,8 +65,8 @@ const TagArticleList = () => {
                       >
                         <img
                           className='w-24 h-12 mb-3 mr-3 rounded-lg sm:mb-0'
-                          src='https://img.quanxiaoha.com/quanxiaoha/193dd1504ebb4f138085acb23619e0dd.jpg'
-                          alt='Jese Leos image'
+                          src={data.cover}
+                          alt='post'
                         />
                         <div className='text-gray-600 dark:text-gray-400'>
                           <h2 className='text-base font-normal text-gray-900'>
@@ -647,7 +647,7 @@ const TagArticleList = () => {
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

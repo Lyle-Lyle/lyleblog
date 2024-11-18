@@ -40,7 +40,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     // id: Number(searchParams.get('id')) || '',
     name: searchParams.get('name') || '',
     current: Number(searchParams.get('current')) || 1,
-    pageSize: Number(searchParams.get('size')) || 2,
+    pageSize: Number(searchParams.get('size')) || 6,
   };
 
   // 获取标签分页列表

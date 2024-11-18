@@ -1,4 +1,4 @@
-![alt text](<博客(blog)_爱给网_aigei_com.png>)  
+![alt text](<博客(blog)_爱给网_aigei_com.png>)
 LyleBlog is a practical, and elegant blogging platform designed for personal use. It features built-in traffic analytics and an image hosting service. Additionally, LyleBlog is highly extensible, offering a comprehensive admin panel that supports saving images to a self-hosted image storage and includes a powerful editor.
 
 <div align="center">Link:http://118.25.109.39/</div>
@@ -29,6 +29,7 @@ LyleBlog is a practical, and elegant blogging platform designed for personal use
 - [ ] Dark mode
 - [ ] CI/CD
 - [ ] comment support
+- [ ] fix bugs: please see issues at 
 
 ## Installation & Usage 🚀
 

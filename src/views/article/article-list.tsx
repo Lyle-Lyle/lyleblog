@@ -1,23 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import to from 'await-to-js';
 import {
   ActionFunctionArgs,
   LoaderFunctionArgs,
   useLoaderData,
+  useLocation,
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
-import {
-  Button,
-  Flex,
-  Image,
-  message,
-  Pagination,
-  Space,
-  Table,
-  TableProps,
-} from 'antd';
+import { Button, Flex, message, Space, Table, TableProps } from 'antd';
 import ButtonAdd from '@/components/article-cate/btn-add';
 import ButtonEdit from '@/components/article-cate/btn-edit';
 import ButtonDelete from '@/components/article-cate/btn-del';
@@ -41,7 +33,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     id: Number(searchParams.get('id')) || '',
     title: searchParams.get('title') || '',
     current: Number(searchParams.get('current')) || 1,
-    pageSize: Number(searchParams.get('size')) || 2,
+    pageSize: Number(searchParams.get('size')) || 6,
   };
 
   // 获取文章分页列表
@@ -112,16 +104,16 @@ const ArticleList: FC = () => {
     total: number;
   } | null;
   console.log(loaderData);
-  console.log('useLoaderData', loaderData?.artRes);
+  console.log('ArticleListLoaderData', loaderData?.artRes);
 
   const [, setSearchParams] = useSearchParams();
 
   // 表格分页属性
   const paginationProps = {
-    showSizeChanger: true,
+    // showSizeChanger: true,
     showQuickJumper: false,
-    showTotal: () => `共${loaderData?.total}条`,
-    pageSize: loaderData?.q.size,
+    // showTotal: () => `${loaderData?.total}in toal`,
+    pageSize: loaderData?.q.pageSize,
     current: loaderData?.q.current,
     total: loaderData?.total,
     // onShowSizeChange: (current, pageSize) => changePageSize(pageSize, current),
@@ -131,7 +123,6 @@ const ArticleList: FC = () => {
   const changePage = (current, pageSize) => {
     // 拿到最新的表格页码
     // 设置 searchParams
-
     const params = { current, size: pageSize };
     setSearchParams(params);
   };
@@ -172,16 +163,16 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     | 'PATCH'
     | 'DELETE';
 
-  if (method === 'PUT') {
-    // 调用修改文章分类的接口
-    const [err] = await to(updateArticle(formDataObject));
-    if (err) return null;
-    message.success('修改成功!');
-  } else if (method === 'DELETE') {
-    // 调用删除分类的接口
-    const [err] = await to(deleteArticle(formDataObject));
-    if (err) return null;
-    message.success('删除成功!');
-  }
+  // if (method === 'PUT') {
+  //   // 调用修改文章分类的接口
+  //   const [err] = await to(updateArticle(formDataObject));
+  //   if (err) return null;
+  //   message.success('修改成功!');
+  // } else if (method === 'DELETE') {
+  //   // 调用删除分类的接口
+  //   const [err] = await to(deleteArticle(formDataObject));
+  //   if (err) return null;
+  //   message.success('删除成功!');
+  // }
   return true;
 };

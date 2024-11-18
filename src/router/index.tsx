@@ -48,6 +48,7 @@ import ArticleEdit, {
   loader as artEditLoader,
   action as artEditAction,
 } from '@/views/article/article-edit';
+import FrontendLayout from '@/views/frontend/frontend-layout';
 
 const router = createBrowserRouter([
   {
@@ -130,42 +131,47 @@ const router = createBrowserRouter([
     path: '/',
     element: (
       <AuthRoot>
-        <Home />
+        <FrontendLayout />
       </AuthRoot>
     ),
-    loader: homeLoader,
+
     children: [
+      // {
+      //   path: 'home-test',
+      //   element: <HomeTest />,
+      // },
       {
-        path: '/home-test',
-        element: <HomeTest />,
+        path: '',
+        element: <Home />,
+        loader: homeLoader,
       },
       {
-        path: '/archive',
+        path: 'archive',
         element: <ArchiveList />,
         loader: archiveLoader,
       },
       {
-        path: '/category',
+        path: 'category',
         element: <CategoryList />,
         loader: categoryLoader,
       },
       {
-        path: '/category/article/list',
+        path: 'category/article/list',
         element: <CategoryArticleList />,
         loader: categoryArticleLoader,
       },
       {
-        path: '/tag',
+        path: 'tag',
         element: <TagList />,
         loader: tagLoader,
       },
       {
-        path: '/tag/article/list',
+        path: 'tag/article/list',
         element: <TagArticleList />,
         loader: tagArticleLoader,
       },
       {
-        path: '/article/:articleId',
+        path: 'article/:articleId',
         element: <ArticleDetail />,
         loader: artDetailLoader,
       },

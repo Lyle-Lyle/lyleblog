@@ -9,6 +9,7 @@ import to from 'await-to-js';
 import React from 'react';
 import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom';
 
+// dashboard page
 const Index = () => {
   const loaderData = useLoaderData();
   console.log('heatmapinfo', loaderData?.heatMapInfo);
@@ -57,7 +58,7 @@ const Index = () => {
               <div className='ml-5'>
                 <h2 className='mb-1'>Post</h2>
                 <div className='font-bold text-2xl'>
-                  {loaderData?.info.articleTotalCount}
+                  {loaderData?.info?.articleTotalCount}
                 </div>
               </div>
             </div>
@@ -129,7 +130,7 @@ const Index = () => {
               <div className='ml-5'>
                 <h2 className='mb-1'>Category</h2>
                 <div className='font-bold text-2xl'>
-                  {loaderData?.info.categoryTotalCount}
+                  {loaderData?.info?.categoryTotalCount}
                 </div>
               </div>
             </div>
@@ -187,7 +188,7 @@ const Index = () => {
               <div className='ml-5'>
                 <h2 className='mb-1'>Tag</h2>
                 <div className='font-bold text-2xl'>
-                  {loaderData?.info.tagTotalCount}
+                  {loaderData?.info?.tagTotalCount}
                 </div>
               </div>
             </div>
@@ -260,7 +261,7 @@ const Index = () => {
               <div className='ml-5'>
                 <h2 className='mb-1'>Total page views</h2>
                 <div className='font-bold text-2xl'>
-                  {loaderData?.info.pvTotalCount}
+                  {loaderData?.info?.pvTotalCount}
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ const CategoryList = () => {
   } | null;
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
       <main className='container max-w-screen-xl mx-auto p-4 px-6'>
         {/* <!-- grid 表格布局，分为 4 列 --> */}
         <div className='grid grid-cols-4 gap-7'>
