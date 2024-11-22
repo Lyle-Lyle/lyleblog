@@ -2,7 +2,7 @@
 LyleBlog is a practical, and elegant blogging platform designed for personal use. It features built-in traffic analytics and an image hosting service. Additionally, LyleBlog is highly extensible, offering a comprehensive admin panel that supports saving images to a self-hosted image storage and includes a powerful editor.
 
 <div align="center">Link:http://118.25.109.39/</div>
-<div align="center">Account:test123456 password:test123456</div>
+<div align="center">Account:quanxiaoha password:quanxiaoha</div>
 
 ## UI 📸
 
